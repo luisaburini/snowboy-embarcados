@@ -37,7 +37,6 @@ Connect jumpers on the given pins
 |  7    |   LED3    |
 |  8    |   LED4    |
 |  9    |   LED5    |
-|  10   |   LED6    |
 --------------------
 
 ./init.sh
