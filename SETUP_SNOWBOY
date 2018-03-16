@@ -1,30 +1,43 @@
 
 Install dependencies
+
 opkg update
 opkg flag hold libc6 
 opkg install packagegroup-core-buildessential python-audio  python-pip sox git  python-dev pulseaudio python-numpy libasound2 alsa-utils alsa-lib-dev pulseaudio-lib-alsa-util alsa-conf alsa-conf-base alsa-plugins-dev alsa-plugins-pulseaudio-conf imx-alsa-plugins packagegroup-base-alsa pulseaudio-module-alsa-card pulseaudio-module-alsa-sink pulseaudio-module-alsa-source pulseaudio-lib-protocol-esound pulseaudio-module-esound-compat-spawnfd pulseaudio-module-esound-compat-spawnpid pulseaudio-module-esound-protocol-tcp pulseaudio-module-esound-protocol-unix pulseaudio-module-position-event-sounds pulseaudio-module-esound-sink
 
+
 Install PortAudio
+
 wget http://portaudio.com/archives/pa_stable_v190600_20161030.tgz
 tar xf pa_stable_v190600_20161030.tgz
 cd portaudio/
 ./configure && make
 make install
 
+
 copy installed libs and includes from /usr/local/ to  /usr/ 
+
 pip install pyaudio 
 
+
 Configuring audio inputs:
+
 vi /etc/asound.conf 
 vi /usr/share/alsa.conf 
-
 cd ../
 
-Download Snowboy API:
-wget https://s3-us-west-2.amazonaws.com/snowboy/snowboy-releases/rpi-arm-raspbian-8.0-1.0.0.tar.bz2
+Jumper wires connections: verify Apalis Evaluation Board Datasheet (http://docs.toradex.com/101028-apalis-evaluation-board-datasheet.pdf)
+Connect jumpers on the given pins
 
-OR
+---------------------
+|  X3   |    X34    |
+--------------------|
+|  5    |   LED1    | 
+|  6    |   LED2    |
+|  7    |   LED3    |
+|  8    |   LED4    |
+|  9    |   LED5    |
+|  10   |   LED6    |
+--------------------
 
-verify our example. Copy to target
-scp rpi-arm-raspbian-8.0-1.0.0 root@<your board's IP>:~
-scp init.sh root@<your board's IP>:~
+./init.sh
