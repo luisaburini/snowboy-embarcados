@@ -26,7 +26,6 @@ def interrupt_callback():
 
 def detect_acende():
     global led
-    snowboydecoder.play_audio_file(snowboydecoder.DETECT_DING)
     if led > 4:
         led = 0
     f = open(path + addr_leds[led] + val, "w")
@@ -35,7 +34,6 @@ def detect_acende():
 
 def detect_apaga():
     global led
-    snowboydecoder.play_audio_file(snowboydecoder.DETECT_DONG)
     led -= 1
     if led < 0:
         led = 4
