@@ -14,4 +14,4 @@ echo "out" > /sys/class/gpio/gpio170/direction
 
 SPATH="/home/root/apalis-imx6"
 
-python ${SPATH}/demo-embarcados.py ${SPATH}/snowboy.umdl ${SPATH}/alexa.umdl 
+python ${SPATH}/demo-embarcados.py ${SPATH}/alexa.umdl ${SPATH}/snowboy.pmdl
